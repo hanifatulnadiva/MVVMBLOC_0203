@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mvvmbloc_0203/ViewModel/userbloc.dart';
 import 'package:mvvmbloc_0203/ViewModel/userevent.dart';
+import 'package:mvvmbloc_0203/ViewModel/userstate.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -27,9 +28,18 @@ class HomePage extends StatelessWidget {
               },
             ),
             SizedBox(height: 20),
-            
+            BlocBuilder<Userbloc, Userstate>(
+              builder: (context, state){
+                return Text(
+                  
+                  "Halo, ${state.nama}..., is ${state.email} your electronic mail?",
+                  style: TextStyle(fontSize: 20),
+                );
+              },
+            )
           ],
-        ),)
+        ),
+      )
     );
   }
 }
