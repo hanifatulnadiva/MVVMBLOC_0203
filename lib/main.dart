@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mvvmbloc_0203/View/homepage.dart';
+import 'package:mvvmbloc_0203/ViewModel/userbloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,9 +13,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
+    return BlocProvider(
+      create: (context) => Userbloc(),
+      child: MaterialApp(
+        home: HomePage(),
+      ),
+      // title: 'Flutter Demo',
+      // theme: ThemeData(
         // This is the theme of your application.
         //
         // TRY THIS: Try running your application with "flutter run". You'll see
@@ -28,9 +35,9 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      //   colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+      // ),
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
